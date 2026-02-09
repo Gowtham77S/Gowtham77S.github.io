@@ -1,0 +1,688 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cormorant Garamond', 'Georgia', serif;
+    background: #f8d5d9;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    overflow-x: hidden;
+}
+
+.invitation-page {
+    position: relative;
+    max-width: 1400px;
+    width: 100%;
+    animation: fadeIn 0.8s ease-out;
+    z-index: 1; /* ensure page content sits above background animation */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Falling cats animation (copied from main page) */
+.falling-cats {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* put behind content */
+}
+
+.cat {
+    position: absolute;
+    top: -10vh;
+    display: inline-block;
+    font-size: 28px;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.12));
+    transform-origin: center;
+    will-change: transform, margin-left;
+    margin-left: 0;
+    animation-name: fall, sway;
+    animation-timing-function: linear, ease-in-out;
+    animation-iteration-count: infinite, infinite;
+    animation-duration: 10s, 4s;
+    animation-delay: 0s, 0s;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-10vh) rotate(0deg); }
+    100% { transform: translateY(110vh) rotate(360deg); }
+}
+
+@keyframes sway {
+    0% { margin-left: 0px; }
+    50% { margin-left: 20px; }
+    100% { margin-left: 0px; }
+}
+
+@media (max-width: 480px) {
+    .cat { font-size: 20px; }
+}
+
+/* Flowers used on the landing page (keeps same size/positioning) */
+.flowers {
+    position: absolute;
+    pointer-events: none;
+    font-size: 64px;
+    line-height: 1;
+}
+
+.flowers.left { left: -36px; bottom: 18px; transform: rotate(-8deg); }
+.flowers.right { right: -36px; top: 10px; transform: rotate(6deg); }
+
+
+/* Envelope top section */
+.envelope-top {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 0rem;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 10;
+}
+
+.envelope-flap-left,
+.envelope-flap-right {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+.envelope-flap-left {
+    left: 50%;
+    transform: translateX(-100%);
+    border-width: 0 0 150px 250px;
+    border-color: transparent transparent #f7f3f1 transparent;
+    filter: drop-shadow(-2px 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+.envelope-flap-right {
+    right: 50%;
+    transform: translateX(100%);
+    border-width: 0 250px 150px 0;
+    border-color: transparent #efe9e7 transparent transparent;
+    filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+.wax-seal {
+    position: absolute;
+    bottom: 80px;
+    width: 70px;
+    height: 70px;
+    background: #0f0f0f;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    z-index: 15;
+    border: 3px solid #1a1a1a;
+}
+
+/* Invitation card */
+.invitation-card {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    animation: slideUp 0.8s ease-out 0.2s both;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.floral-decoration {
+    position: absolute;
+    font-size: 4rem;
+    z-index: 5;
+    opacity: 0.9;
+}
+
+.floral-decoration.top-left {
+    top: -20px;
+    left: -20px;
+    transform: rotate(-15deg);
+}
+
+.floral-decoration.top-right {
+    top: -10px;
+    right: -10px;
+    transform: rotate(15deg);
+}
+
+.floral-decoration.bottom-left {
+    bottom: -10px;
+    left: -10px;
+    transform: rotate(15deg);
+}
+
+.floral-decoration.bottom-right {
+    bottom: -20px;
+    right: -20px;
+    transform: rotate(-15deg);
+}
+
+.card-inner {
+    display: grid;
+    grid-template-columns: 45% 55%;
+    min-height: 600px;
+}
+
+/* New: envelope + card stack */
+.envelope-back {
+    position: relative;
+    width: 880px;
+    max-width: 94vw;
+    height: 360px;
+    margin: 0 auto;
+    border-radius: 12px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    z-index: 1;
+}
+
+/* If using a single envelope image (assets/envelope-open.png) */
+.envelope-image{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-49%);
+    top: -180px;
+    width: 760px;
+    max-width: 92vw;
+    height: auto;
+    z-index: 2; /* image sits behind seal and hearts */
+    pointer-events: none;
+}
+
+/* hide constructed envelope pieces when using the image fallback */
+.envelope-body,
+.envelope-flap,
+.envelope-inner-pattern{ display: none !important; }
+
+.wax-seal{ z-index: 9; }
+.heart-emitter{ z-index: 10; }
+
+.envelope-back::before,
+.envelope-back::after{
+    content: '';
+    position: absolute;
+    width: 22%;
+    height: 140px;
+    top: 36px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.06), transparent);
+    border-radius: 8px;
+    z-index: 0;
+}
+.envelope-back::before{ left: 6%; transform: skewX(-6deg); }
+.envelope-back::after{ right: 6%; transform: skewX(6deg); }
+
+.envelope-inner-pattern {
+    position:absolute;
+    top: 18px;
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+    border-radius: 8px;
+    background-image: url('assets/envelope-pattern.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 1;
+    z-index: 1;
+}
+
+.envelope-body{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 820px;
+    height: 170px;
+    background: linear-gradient(180deg,#f7f3f1,#efe9e7);
+    border-radius: 12px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+    z-index: 1;
+}
+
+.envelope-flap{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -180px;
+    width: 760px;
+    height: 360px;
+    background: linear-gradient(180deg,#f7f3f1,#efe9e7);
+    border-radius: 6px;
+    clip-path: polygon(50% 0%, 98% 26%, 98% 100%, 2% 100%, 2% 26%);
+    box-shadow: 0 40px 70px rgba(0,0,0,0.12);
+    z-index: 6;
+    overflow: hidden;
+}
+
+.envelope-flap .envelope-inner-pattern{
+    /* pattern sits inside the flap */
+    top: 30px;
+    left: 34px;
+    right: 34px;
+    bottom: 34px;
+    opacity: 1;
+}
+
+.envelope-back::before{
+    /* top flap shape */
+    content: '';
+    position: absolute;
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 560px;
+    height: 260px;
+    background: linear-gradient(180deg,#f7f3f1,#efe9e7);
+    border-radius: 8px;
+    clip-path: polygon(50% 0%, 98% 28%, 98% 100%, 2% 100%, 2% 28%);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    z-index: 0;
+}
+
+.wax-seal{
+    position: absolute;
+    top: 100px; /* sits on the flap */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 74px;
+    height: 74px;
+    background: #0f0f0f;
+    color: #fff;
+    border-radius: 50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    z-index: 8;
+    box-shadow: 0 12px 26px rgba(0,0,0,0.4);
+}
+
+/* hearts emitter inside envelope flap */
+.heart-emitter{
+    position: absolute;
+    left: 50%;
+    top: 84px; /* near the wax seal */
+    transform: translateX(-50%);
+    width: 180px;
+    height: 80px;
+    pointer-events: none;
+    z-index: 9;
+}
+
+.heart{
+    position: absolute;
+    bottom: 0;
+    transform-origin: center bottom;
+    animation: rise 1800ms linear forwards, wobble 1200ms ease-in-out infinite alternate;
+    will-change: transform, opacity;
+    display: inline-block;
+    font-size: 22px;
+    line-height: 1;
+    color: #ff6b8a; /* pink */
+    pointer-events: none;
+}
+
+@keyframes rise{
+    0%{ transform: translateY(0) scale(0.8); opacity: 1; }
+    100%{ transform: translateY(-220px) scale(1.1); opacity: 0; }
+}
+
+@keyframes wobble{
+    0%{ transform: translateX(0) rotate(-3deg); }
+    100%{ transform: translateX(20px) rotate(6deg); }
+}
+
+.heart img { width:100%; height:100%; display:block; object-fit:contain; }
+
+.card-stack{
+    position: relative;
+    width: 820px;
+    max-width: 92vw;
+    margin: 0 auto 0;
+    z-index: 3; /* cards above envelope body but below flap */
+    display:block;
+    height: 560px;
+}
+
+.card{
+    position: absolute;
+    border-radius: 8px;
+    box-shadow: 0 24px 70px rgba(0,0,0,0.28);
+    overflow: hidden;
+    background: #fff;
+    will-change: transform;
+}
+
+.left-card{
+    left: 40px;
+    top: 40px;
+    width: 420px;
+    height: 600px;
+    transform: rotate(-0.6deg);
+    background: #0b0b0b;
+    z-index: 3; /* cards sit above body */
+    border-radius: 12px;
+    box-shadow: -18px 28px 60px rgba(0,0,0,0.28);
+}
+
+.left-photo{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position: center left;
+    filter: grayscale(85%) contrast(0.9) brightness(0.55);
+}
+
+.left-overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    text-align:center;
+    padding:1.6rem;
+}
+
+.right-card{
+    /* place right card next to left card and 20% higher than left's top */
+    left: 420px; /* left-card.left (40px) + left-card.width (420px) - small overlap */
+    top: -68px; /* left-card.top (40px) - 20% of left-card.height (540px * 0.2 = 108px) => 40 - 108 = -68 */
+    width: 480px;
+    height: 600px;
+    background: #fbf9f8;
+    padding: 70px 42px 0px;
+    z-index: 4; /* right card above left card */
+    border-radius: 12px;
+    transform: rotate(0.6deg);
+}
+
+.card-content { display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; }
+
+.day{
+    font-size:3.6rem;
+    color:#4b4b4b;
+}
+.month{ font-family: 'Pinyon Script', 'Great Vibes', cursive; font-size:3.8rem; margin: 10px 0; }
+.year{ font-size:2.4rem; color:#4b4b4b; margin-bottom: 14px; }
+
+.floral{ position:absolute; width:220px; height:auto; pointer-events:none; }
+.floral-left{ /* overlap top-left corner of left-card */
+    left: 100px; /* aligns with left-card left */
+    top: 60px; /* slightly above card top to overlap */
+    transform: translate(-30%, -20%) rotate(-6deg) scale(1.05);
+    z-index: 8;
+}
+.floral-right{ /* overlap top-right corner of right-card */
+    left: 770px; /* approximate position over right-card top-right */
+    top: 407px;
+    transform: translate(10%, -20%) rotate(8deg) scale(0.95);
+    z-index: 8;
+}
+
+.back-button{ margin-top: 26rem; }
+
+/* Left side - Photo section */
+.card-left {
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.photo-section {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.couple-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+}
+
+.photo-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+}
+
+.invitation-text {
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.groom-name,
+.bride-name {
+    font-family: 'Pinyon Script', 'Great Vibes', cursive;
+    font-size: 4rem;
+    font-weight: 400;
+    margin: 0.5rem 0;
+    line-height: 1;
+}
+
+.and-text {
+    font-family: 'Pinyon Script', 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    font-style: italic;
+    margin: 0.5rem 0;
+}
+
+/* Right side - Date and venue */
+.card-right {
+    background: #fafaf8;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.date-info {
+    width: 100%;
+}
+
+.day {
+    font-size: 5rem;
+    font-weight: 400;
+    letter-spacing: 4px;
+    color: #2a2a2a;
+    margin-bottom: 0;
+    line-height: 1;
+}
+
+.month {
+    font-family: 'Pinyon Script', 'Great Vibes', cursive;
+    font-size: 5rem;
+    font-weight: 400;
+    color: #2a2a2a;
+    margin: 0.5rem 0 1rem;
+    line-height: 1;
+}
+
+.year {
+    font-size: 4.5rem;
+    font-weight: 400;
+    letter-spacing: 4px;
+    color: #2a2a2a;
+    margin-bottom: 2rem;
+    line-height: 1;
+}
+
+.venue-info {
+    margin: 2rem 0;
+    padding: 1.5rem 0;
+    border-top: 1px solid #d0d0c8;
+    border-bottom: 1px solid #d0d0c8;
+}
+
+.time {
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+.venue-name {
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.location {
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    color: #666;
+}
+
+.contact-info {
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    color: #888;
+    line-height: 1.6;
+}
+
+/* Back button */
+.back-button {
+    display: inline-block;
+    /* margin: 2rem auto; */
+    padding: 0.8rem 2rem;
+    background: #2a2a2a;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.back-button:hover {
+    background: #1a1a1a;
+    transform: translateX(-50%) translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+    
+    .envelope-top {
+        height: 100px;
+        margin-bottom: -1rem;
+    }
+    
+    .envelope-flap-left,
+    .envelope-flap-right {
+        border-width: 0 0 100px 150px;
+    }
+    
+    .envelope-flap-right {
+        border-width: 0 150px 100px 0;
+    }
+    
+    .wax-seal {
+        bottom: 50px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .card-inner {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+    
+    .card-left {
+        min-height: 400px;
+    }
+    
+    .groom-name,
+    .bride-name {
+        font-size: 3rem;
+    }
+    
+    .and-text {
+        font-size: 2rem;
+    }
+    
+    .day,
+    .month,
+    .year {
+        font-size: 3rem;
+    }
+    
+    .floral-decoration {
+        font-size: 2.5rem;
+    }
+    
+    .card-right {
+        padding: 2rem;
+    }
+}
+
+/* Fallback if photo doesn't exist */
+.couple-photo {
+    background: linear-gradient(135deg, #4a4a4a 0%, #2a2a2a 100%);
+}

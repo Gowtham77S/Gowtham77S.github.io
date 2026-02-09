@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="invitation-style.css">
+    <title>Wedding Invitation</title>
+</head>
+<body>
+    <div class="falling-cats" aria-hidden="true"></div>
+    <div class="invitation-page">
+        <!-- Envelope in the back with patterned interior -->
+        <div class="envelope-back">
+            <!-- Replace envelope markup with a single image. Put your PNG at assets/envelope-open.png -->
+            <img src="assets/envelope-heart.png" alt="open envelope" class="envelope-image">
+            <div class="heart-emitter" aria-hidden="true"></div>
+        </div>
+
+        <!-- Card stack pulled out of envelope -->
+        <div class="card-stack">
+            <!-- left card (photo) slightly behind/right) -->
+            <div class="card left-card">
+                <img src="assets/invite_left.jpg" alt="photo-left" class="left-photo">
+                <div class="left-overlay">
+                    <p class="invitation-text">PLEASE JOIN US FOR<br>THE WEDDING OF</p>
+                    <h1 class="groom-name">Gowtham S</h1>
+                    <p class="and-text">and</p>
+                    <h1 class="bride-name">Meghana Sp</h1>
+                </div>
+            </div>
+
+            <!-- right card (date) sits above the left card -->
+            <div class="card right-card">
+                <div class="card-content">
+                    <h2 class="day">02nd & 03rd</h2>
+                    <h2 class="month">Feb</h2>
+                    <h2 class="year">2026</h2>
+
+                    <div class="venue-info">
+                        <p class="time">AT 7PM</p>
+                        <p class="venue-name">Rukmini Mahal</p>
+                        <p class="location">Anekal</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- floral decorations (emoji placeholders) -->
+            <div class="flowers left">🌸</div>
+            <div class="flowers right">🌿</div>
+        </div>
+
+        <a href="index.html" class="back-button">← Back</a>
+    </div>
+    <script src="envelope-hearts.js" defer></script>
+</body>
+</html>
