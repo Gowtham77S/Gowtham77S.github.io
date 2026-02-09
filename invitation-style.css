@@ -382,7 +382,7 @@ html, body {
     /* place right card next to left card and 20% higher than left's top */
     left: 420px; /* left-card.left (40px) + left-card.width (420px) - small overlap */
     top: -68px; /* left-card.top (40px) - 20% of left-card.height (540px * 0.2 = 108px) => 40 - 108 = -68 */
-    width: 480px;
+    width: 420px;
     height: 600px;
     background: #fbf9f8;
     padding: 70px 42px 0px;
@@ -547,7 +547,7 @@ html, body {
     .month { font-size: 2rem !important; }
     .year { font-size: 1.6rem !important; }
 
-    .back-button { display: block !important; margin: 1.2rem auto 2rem !important; left: auto !important; transform: none !important; }
+    /* .back-button { display: block !important; margin: 1.2rem auto 2rem !important; left: auto !important; transform: none !important; } */
 }
 
 .and-text {
@@ -651,11 +651,11 @@ html, body {
     transform: translateX(-50%);
 }
 
-.back-button:hover {
+/* .back-button:hover {
     background: #1a1a1a;
     transform: translateX(-50%) translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
+} */
 
 /* Responsive design */
 @media (max-width: 768px) {
@@ -758,8 +758,8 @@ html, body {
     /* make sure cards flow in document (override absolute positioning) */
     .card {
         position: static !important;
-        width: 100%;
-        max-width: 720px;
+        /* width: 100%; */
+        max-width: 80%;
         height: auto;
         transform: none !important;
         box-shadow: 0 12px 30px rgba(0,0,0,0.18);
@@ -787,10 +787,10 @@ html, body {
     .month { font-size: 2.2rem; }
     .year { font-size: 1.6rem; }
 
-    .back-button {
+    /* .back-button {
         margin: 1.5rem auto 2rem;
         left: auto;
         transform: none;
         display: block;
-    }
+    } */
 }
