@@ -1029,5 +1029,27 @@ html { scroll-behavior: smooth; }
     .gallery-slide{ padding: 2rem 0.75rem; }
 }
 
+/* Audio control (sticky bottom-left) */
+.audio-toggle{
+    position: fixed;
+    left: 18px;
+    bottom: 18px;
+    z-index: 2000;
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid rgba(0,0,0,0.06);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    cursor: pointer;
+    font-size: 20px;
+}
+.audio-toggle.playing{ background: rgba(40,200,120,0.95); color: #fff; }
+.audio-toggle:focus{ outline: 2px solid rgba(0,0,0,0.12); }
+
+
 
 
