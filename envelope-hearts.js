@@ -1,7 +1,7 @@
 (function(){
   const container = document.querySelector('.falling-cats');
   if(!container) return;
-  const count = 20;
+  const count = 7;
   for(let i=0;i<count;i++){
     const s = document.createElement('span');
     s.className = 'cat';
