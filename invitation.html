@@ -7,7 +7,43 @@
     <title>Wedding Invitation</title>
 </head>
 <body>
+    <header class="site-header" role="banner">
+        <nav class="site-nav" role="navigation" aria-label="Primary">
+            <a href="#home">Home</a>
+            <a href="#events">Events</a>
+            <a href="#gallery">Gallery</a>
+            <!-- <a href="#">Highlights</a> -->
+        </nav>
+    </header>
     <div class="falling-cats" aria-hidden="true"></div>
+    <!-- <section id="hero" class="hero-slide" data-date="2026-05-02T19:00:00">
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="hero-content">
+            <h1 class="couple">Shyam &amp; Rincy</h1>
+            <p class="hero-date">02.05.2026</p>
+            <p class="hero-quote">"I have found the one whom my soul loves."</p>
+            <div id="countdown" class="countdown" aria-label="Countdown to event">
+                <div class="countdown-item">
+                    <span class="number" id="days">00</span>
+                    <span class="label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="number" id="hours">00</span>
+                    <span class="label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="number" id="minutes">00</span>
+                    <span class="label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="number" id="seconds">00</span>
+                    <span class="label">Seconds</span>
+                </div>
+            </div>
+            <div class="hero-cta">SAVE OUR DATE</div>
+        </div>
+    </section> -->
+
     <div class="invitation-page">
         <!-- Envelope in the back with patterned interior -->
         <div class="envelope-back">
@@ -15,9 +51,9 @@
             <img src="assets/envelope-heart.jpeg" alt="open envelope" class="envelope-image">
             <div class="heart-emitter" aria-hidden="true"></div>
         </div>
-
+        <div class="default-scroll"></div>
         <!-- Card stack pulled out of envelope -->
-        <div class="card-stack">
+        <div id="home" class="card-stack">
             <!-- left card (photo) slightly behind/right) -->
             <div class="card left-card">
                 <img src="assets/invite_left.jpg" alt="photo-left" class="left-photo">
@@ -44,7 +80,7 @@
 
                     <div class="venue-info">
                         <p class="time">AT 7PM</p>
-                        <p class="venue-name">Rukmini Mahal</p>
+                        <p class="venue-name">Sri Sai Rukmini Mahal</p>
                         <p class="location">Anekal</p>
                     </div>
                 </div>
@@ -53,8 +89,87 @@
             </div>
         </div>
 
-        <a href="index.html" class="back-button">← Back</a>
+
+            <section id="events" class="events-slide">
+        <div class="events-inner">
+            <h2 class="section-title">Events</h2>
+            <div class="events-grid">
+                <article class="event-card">
+                    <h3 class="event-title">Reception</h3>
+                    <hr>
+                    <div class="event-meta">
+                        <div class="meta-item">
+                            <!-- calendar icon -->
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 11H17" stroke="#333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 15H11" stroke="#333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="4" width="18" height="18" rx="2" stroke="#333" stroke-width="1.2"/></svg>
+                            <div class="meta-text">02 May 2026</div>
+                        </div>
+                        <div class="meta-item">
+                            <!-- clock icon -->
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 7V12L15 14" stroke="#333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#333" stroke-width="1.2"/></svg>
+                            <div class="meta-text">07:00 PM</div>
+                        </div>
+                    </div>
+                    <p class="event-location">Sri Sai Rukmini Mahal</p>
+                    <p class="event-note">MPM6+H32, Singasandra, Karnataka 562106, India</p>
+                    <div class="event-map">
+                        <iframe src="https://www.google.com/maps?q=sri+sai+rukmini+mahal+anekal&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <p class="map-link"><a href="https://maps.app.goo.gl/Bnp6uuGuRPg8Jn4t9" target="_blank" rel="noopener">Click here to get directions</a></p>
+                        <div class="qr">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3D12.6838819%2C77.710129" alt="Scan to open location">
+                            <div class="qr-label">Scan to open location</div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="event-card">
+                    <h3 class="event-title">WEDDING</h3>
+                    <hr>
+                    <div class="event-meta">
+                        <div class="meta-item">
+                            <!-- calendar icon -->
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 11H17" stroke="#333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 15H11" stroke="#333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="4" width="18" height="18" rx="2" stroke="#333" stroke-width="1.2"/></svg>
+                            <div class="meta-text">03 May 2026</div>
+                        </div>
+                        <div class="meta-item">
+                            <!-- clock icon -->
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 7V12L15 14" stroke="#333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#333" stroke-width="1.2"/></svg>
+                            <div class="meta-text">11:00 AM</div>
+                        </div>
+                    </div>
+                    <p class="event-location">Sri Sai Rukmini Mahal</p>
+                    <p class="event-note">MPM6+H32, Singasandra, Karnataka 562106, India</p>
+                    <div class="event-map">
+                        <iframe src="https://www.google.com/maps?q=sri+sai+rukmini+mahal+anekal&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <p class="map-link"><a href="https://maps.app.goo.gl/Bnp6uuGuRPg8Jn4t9" target="_blank" rel="noopener">Click here to get directions</a></p>
+                        <div class="qr">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3D12.6838819%2C77.710129" alt="Scan to open location">
+                            <div class="qr-label">Scan to open location</div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+
+
+
+                <section id="gallery" class="gallery-slide">
+        <div class="gallery-inner">
+            <h2 class="section-title">Gallery</h2>
+            <div class="gallery-grid">
+                <a href="assets/invite_left.jpg" class="gallery-item"><img src="assets/invite_left.jpg" alt="Couple 1"></a>
+                <a href="assets/invite_left.jpg" class="gallery-item"><img src="assets/invite_left.jpg" alt="Couple 2"></a>
+                <a href="assets/invite_left.jpg" class="gallery-item"><img src="assets/invite_left.jpg" alt="Couple 3"></a>
+            </div>
+        </div>
+    </section>
+
+        <!-- <a href="index.html" class="back-button">← Back</a> -->
     </div>
+    <script src="assets/countdown.js" defer></script>
+    <script src="assets/scroll-init.js" defer></script>
+    <script src="assets/gallery-lightbox.js" defer></script>
     <script src="envelope-hearts.js" defer></script>
 </body>
 </html>

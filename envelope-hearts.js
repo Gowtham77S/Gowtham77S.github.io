@@ -5,7 +5,7 @@
   for(let i=0;i<count;i++){
     const s = document.createElement('span');
     s.className = 'cat';
-    s.textContent = '❤️';
+    s.textContent = '🌸';
     const left = Math.random()*100;
     const delay = Math.random()*-10;
     const dur = 6 + Math.random()*8;
